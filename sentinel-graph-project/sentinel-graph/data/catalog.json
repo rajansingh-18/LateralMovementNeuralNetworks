@@ -1,0 +1,19 @@
+{
+ "title":"Explainable Temporal Graph Neural Network for Early Detection of Lateral Movement in Enterprise Networks",
+ "hosts":[
+  {"id":"WS-01","ip":"10.0.1.10","type":"Workstation","criticality":1,"zone":"User zone"},
+  {"id":"WS-02","ip":"10.0.1.11","type":"Workstation","criticality":1,"zone":"User zone"},
+  {"id":"SERVER-01","ip":"10.0.2.10","type":"Application server","criticality":2,"zone":"Application zone"},
+  {"id":"DATABASE-01","ip":"10.0.3.10","type":"Database","criticality":3,"zone":"Data zone"},
+  {"id":"DC-01","ip":"10.0.4.10","type":"Domain controller","criticality":4,"zone":"Identity zone"}
+ ],
+ "users":[{"id":"employee01","host":"WS-01","role":"USER"},{"id":"employee02","host":"WS-02","role":"USER"},{"id":"admin01","host":"DC-01","role":"ADMIN"},{"id":"guest01","host":"WS-02","role":"GUEST"}],
+ "services":[{"id":"HTTP","port":80},{"id":"RDP","port":3389},{"id":"SMB","port":445},{"id":"SSH","port":22},{"id":"MYSQL","port":3306},{"id":"LDAP","port":389}],
+ "scenarios":[
+  {"id":"credential-abuse","name":"Credential abuse","short":"Credential abuse","description":"A familiar account accesses unfamiliar hosts outside its normal hours.","technique":"T1078","techniqueName":"Valid Accounts","tactic":"Initial Access","url":"https://attack.mitre.org/techniques/T1078/","service":"LDAP","destination":"DATABASE-01","color":"#eeac54","icon":"key"},
+  {"id":"brute-force","name":"Brute force","short":"Brute force","description":"A burst of failed sign-ins is followed by a successful authentication.","technique":"T1110.001","techniqueName":"Password Guessing","tactic":"Credential Access","url":"https://attack.mitre.org/techniques/T1110/001/","service":"SSH","destination":"SERVER-01","color":"#e98165","icon":"lock"},
+  {"id":"lateral-movement","name":"Remote lateral movement","short":"Lateral movement","description":"Remote sessions traverse a workstation, application server and database.","technique":"T1021","techniqueName":"Remote Services","tactic":"Lateral Movement","url":"https://attack.mitre.org/techniques/T1021/","service":"RDP","destination":"DATABASE-01","color":"#a594f9","icon":"network"},
+  {"id":"privilege-escalation","name":"Privilege escalation","short":"Privilege escalation","description":"An employee account requests an unauthorized administrative role.","technique":"T1098","techniqueName":"Account Manipulation","tactic":"Privilege Escalation","url":"https://attack.mitre.org/techniques/T1098/","service":"LDAP","destination":"DC-01","color":"#f0788a","icon":"shield"},
+  {"id":"reconnaissance","name":"Network reconnaissance","short":"Reconnaissance","description":"A workstation rapidly contacts services across multiple destinations.","technique":"T1046","techniqueName":"Network Service Discovery","tactic":"Discovery","url":"https://attack.mitre.org/techniques/T1046/","service":"SMB","destination":"DC-01","color":"#6fb6ec","icon":"radar"}
+ ]
+}

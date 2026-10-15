@@ -1,0 +1,89 @@
+{
+  "scope": "Synthetic holdout episodes only; not real enterprise performance",
+  "split": {
+    "train": 2765,
+    "validation": 592,
+    "test": 593,
+    "method": "Chronological episode split; disjoint IDs"
+  },
+  "normal_events": 19178,
+  "attack_events": 14379,
+  "seed": 42,
+  "models": {
+    "Random Forest": {
+      "precision": 0.9655172413793104,
+      "recall": 0.9468599033816425,
+      "f1": 0.9560975609756097,
+      "roc_auc": 0.9952379164476484,
+      "pr_auc": 0.9895656829344613,
+      "confusion_matrix": [
+        [
+          379,
+          7
+        ],
+        [
+          11,
+          196
+        ]
+      ],
+      "threshold": 0.5
+    },
+    "Isolation Forest": {
+      "precision": 0.7954545454545454,
+      "recall": 0.8454106280193237,
+      "f1": 0.819672131147541,
+      "roc_auc": 0.934275737778779,
+      "pr_auc": 0.9066289418654039,
+      "confusion_matrix": [
+        [
+          341,
+          45
+        ],
+        [
+          32,
+          175
+        ]
+      ],
+      "threshold": -0.03535134539209034
+    },
+    "Behavioral rules": {
+      "precision": 0.968944099378882,
+      "recall": 0.7536231884057971,
+      "f1": 0.8478260869565217,
+      "roc_auc": 0.8703349102650747,
+      "pr_auc": 0.8162221142421782,
+      "confusion_matrix": [
+        [
+          381,
+          5
+        ],
+        [
+          51,
+          156
+        ]
+      ],
+      "threshold": 0.5
+    },
+    "Temporal GraphSAGE": {
+      "precision": 0.9579439252336449,
+      "recall": 0.9903381642512077,
+      "f1": 0.9738717339667459,
+      "roc_auc": 0.996057670646542,
+      "pr_auc": 0.9913241521061437,
+      "confusion_matrix": [
+        [
+          377,
+          9
+        ],
+        [
+          2,
+          205
+        ]
+      ],
+      "threshold": 0.5
+    }
+  },
+  "best_epoch": 56,
+  "training_seconds": 4.26,
+  "trained_at": "2026-10-15T06:25:13.831824+00:00"
+}

@@ -1,0 +1,3 @@
+# Optional CPU neural-network training; setup_ml.bat installs from the CPU wheel index.
+torch>=2.5,<3
+# GraphSAGE mean aggregation is implemented in PyTorch. PyG is not required.
